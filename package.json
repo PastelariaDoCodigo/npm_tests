@@ -1,12 +1,12 @@
 {
 	"name": "npm_test",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"description": "",
 	"main": "index.js",
 	"dependencies": {},
 	"scripts": {
 		"preversion": "npm test",
-		"version": "git add -A dist",
+		"version": "git add package.json",
 		"postversion": "git push && git push --tags && rm -rf build/temp"
 	},
 	"repository": {
