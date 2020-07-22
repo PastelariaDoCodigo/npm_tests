@@ -1,24 +1,19 @@
 {
-	"name": "mvsg",
+	"name": "npm_test",
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
 	"dependencies": {},
-	"devDependencies": {
-		"release-it": "^13.6.5"
-	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"release": "release-it"
+		"preversion": "npm test",
+		"version": "git add -A dist",
+		"postversion": "git push && git push --tags && rm -rf build/temp"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/marcosgouvea/mvsg.git"
+		"url": "git+https://github.com/PastelariaDoCodigo/npm_tests.git"
 	},
 	"author": "",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/marcosgouvea/mvsg/issues"
-	},
-	"homepage": "https://github.com/marcosgouvea/mvsg#readme"
+	"license": "ISC"
 }
