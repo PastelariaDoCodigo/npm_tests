@@ -1,14 +1,24 @@
+name: Bump version
 on:
   push:
     branches:
       - develop
-
+    paths-ignore:
+      - 'package.json'
+      - 'CHANGELOG.md'
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.MINHA_KEY_DO_GITHUB }}      
-      - run: npm version patch --force
 
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        token: ${{ secrets.MINHA_KEY_DO_GITHUB }}
+    - name: Bump version and push tag
+      uses: TriPSs/conventional-changelog-action@master
+      with:
+        github-token: ${{ secrets.MINHA_KEY_DO_GITHUB }}
+        git-message: 'fazendo um release: {version}'
+        preset: 'vue'
+        tag-prefix: ''
+        output-file: 'CHANGELOG.md'
