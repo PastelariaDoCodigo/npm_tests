@@ -14,11 +14,11 @@ jobs:
     - uses: actions/checkout@v1
       with:
         token: ${{ secrets.MINHA_KEY_DO_GITHUB }}
-    - name: Bump version and push tag
-      uses: TriPSs/conventional-changelog-action@master
+    - name: Conventional Changelog Action
+      uses: TriPSs/conventional-changelog-action@v3
       with:
         github-token: ${{ secrets.MINHA_KEY_DO_GITHUB }}
-        git-message: 'fazendo um release: {version}'
+        git-message: 'chore(release): {version}'
         preset: 'vue'
-        tag-prefix: ''
-        output-file: 'CHANGELOG.md'
+        tag-prefix: 'v'
+        release-count: '10'
