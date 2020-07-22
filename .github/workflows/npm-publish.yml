@@ -3,22 +3,27 @@ on:
   push:
     branches:
       - develop
-    paths-ignore:
-      - 'package.json'
-      - 'CHANGELOG.md'
+    
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-      with:
-        token: ${{ secrets.MINHA_KEY_DO_GITHUB }}
-    - name: Conventional Changelog Action
-      uses: TriPSs/conventional-changelog-action@v3
-      with:
-        github-token: ${{ secrets.MINHA_KEY_DO_GITHUB }}
-        git-message: 'chore(release): {version}'
-        preset: 'vue'
-        tag-prefix: 'v'
-        release-count: '10'
+      - name: "Checkout source code"
+        uses: "actions/checkout@v2"
+        with:
+          ref: ${{ github.ref }}
+      - name: "cat package.json"
+        run: cat ./package.json
+      - name: "Setup Node.js"
+        uses: "actions/setup-node@v1"
+        with:
+          node-version: 12
+      - name: "Automated Version Bump"
+        uses: "phips28/gh-action-bump-version@master"
+        with:
+          tag-prefix: ''
+        env:
+          GITHUB_TOKEN: ${{ secrets.MINHA_KEY_DO_GITHUB }}
+      - name: "cat package.json"
+        run: cat ./package.json
