@@ -1,0 +1,24 @@
+{
+	"name": "mvsg",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"dependencies": {},
+	"devDependencies": {
+		"release-it": "^13.6.5"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"release": "release-it"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/marcosgouvea/mvsg.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/marcosgouvea/mvsg/issues"
+	},
+	"homepage": "https://github.com/marcosgouvea/mvsg#readme"
+}
